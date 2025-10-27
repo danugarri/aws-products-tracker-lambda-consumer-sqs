@@ -1,0 +1,31 @@
+{
+  "name": "lambda-orchestrator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --watch src --exec ts-node  src/index.ts",
+    "build": "rm -rf ./dist && tsc",
+    "zip": "powershell -Command \"if (Test-Path zip\\products-tracker-lambda-orchestrator.zip) { Remove-Item zip\\products-tracker-lambda-orchestrator.zip }; if (!(Test-Path zip)) { New-Item -ItemType Directory -Path zip }; Compress-Archive -Path dist\\* -DestinationPath zip\\products-tracker-lambda-orchestrator.zip\"",
+    "build:optimized": "npm run build && cp package.json dist/ && cp package-lock.json dist/  && cd dist && npm ci --omit=dev",
+    "build:aws": "npm run build:optimized && npm run zip",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.918.0",
+    "@aws-sdk/lib-dynamodb": "^3.918.0",
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
