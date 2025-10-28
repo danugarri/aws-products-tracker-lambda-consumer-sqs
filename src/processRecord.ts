@@ -23,9 +23,10 @@ export async function processRecord(record: SQSRecord) {
 
   // 2) Scrape current price
   const { currentPrice } = await scraper(productUrl);
+  const parsedPrice = parsePrice(currentPrice);
 
   // 3) Compare
-  if (parsePrice(currentPrice) <= targetPrice) {
+  if (parsedPrice <= targetPrice) {
     const now = Math.floor(Date.now() / 1000);
     // Publish to SNS
     const message = {
@@ -53,7 +54,7 @@ export async function processRecord(record: SQSRecord) {
     }
   } else {
     console.log(
-      `ℹ️ Price not matched for ${productId}: target=${targetPrice}, current=${currentPrice}`
+      `ℹ️ Price not matched for ${productId}: target=${targetPrice}, current=${parsedPrice}`
     );
   }
 }
