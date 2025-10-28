@@ -2,7 +2,6 @@
   "name": "lambda-orchestrator",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
@@ -18,8 +17,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.918.0",
-    "@aws-sdk/lib-dynamodb": "^3.918.0",
+    "@aws-sdk/client-sns": "^3.918.0",
+    "@types/aws-lambda": "^8.10.157",
     "dotenv": "^17.2.1"
   },
   "devDependencies": {

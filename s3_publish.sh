@@ -9,13 +9,13 @@ fi
 
 
 # Upload zip to S3
-aws s3 cp ./zip/api.zip s3://dg-lambdas-bucket/products-tracker-lambda-orchestrator.zip
+aws s3 cp ./zip/lambda-sqs-consumer.zip s3://dg-lambdas-bucket/lambda-sqs-consumer.zip
 
 # Update Lambda and publish a new version
 aws lambda update-function-code \
-    --function-name products-tracker-lambda-orchestrator \
+    --function-name lambda-sqs-consumer \
     --s3-bucket dg-lambdas-bucket \
-    --s3-key products-tracker-lambda-orchestrator.zip \
+    --s3-key lambda-sqs-consumer.zip \
     --publish
 
 

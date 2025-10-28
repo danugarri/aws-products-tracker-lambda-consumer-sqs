@@ -1,4 +1,4 @@
-import json from './data.json';
+import json from "./data.json";
 export type ScraperData = typeof json;
 
 export type ParsedData = {
@@ -7,7 +7,7 @@ export type ParsedData = {
   productImage: string;
   bullets_points: string[];
   description: string;
-  pricing: string;
+  currentPrice: string;
 };
 
 export const parser = (data: ScraperData): ParsedData => {
@@ -17,6 +17,6 @@ export const parser = (data: ScraperData): ParsedData => {
     productImage: data.images[0],
     bullets_points: data.feature_bullets,
     description: data.full_description,
-    pricing: data.pricing,
+    currentPrice: data.pricing,
   };
 };
