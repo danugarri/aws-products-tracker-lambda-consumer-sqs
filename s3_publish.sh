@@ -13,7 +13,7 @@ aws s3 cp ./zip/lambda-sqs-consumer.zip s3://dg-lambdas-bucket/lambda-sqs-consum
 
 # Update Lambda and publish a new version
 aws lambda update-function-code \
-    --function-name lambda-sqs-consumer \
+    --function-name products-tracker-consumer \
     --s3-bucket dg-lambdas-bucket \
     --s3-key lambda-sqs-consumer.zip \
     --publish
