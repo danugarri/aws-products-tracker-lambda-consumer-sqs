@@ -9,7 +9,7 @@ fi
 
 
 # Upload zip to S3
-aws s3 cp ./zip/lambda-sqs-consumer.zip s3://dg-lambdas-bucket/lambda-sqs-consumer.zip
+aws s3 cp ../zip/lambda-sqs-consumer.zip s3://dg-lambdas-bucket/lambda-sqs-consumer.zip
 
 # Update Lambda and publish a new version
 aws lambda update-function-code \
