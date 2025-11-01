@@ -1,12 +1,12 @@
 # How to add env variables
 
-f you push the image to ECR and run it on ECS, you can inject env vars in the task definition:
+If you push the image to ECR and run it on ECS, you can inject env vars in the task definition:
 
 ```json
 "containerDefinitions": [
  {
-   "name": "lambda-orchestrator",
-   "image": "<account-id>.dkr.ecr.<region>.amazonaws.com/lambda-orchestrator:latest",
+   "name": "sqs-consumer",
+   "image": "<account-id>.dkr.ecr.<region>.amazonaws.com/sqs-consumer:latest",
    "environment": [
      { "name": "REGION", "value": "us-east-1" },
      { "name": "SNS_TOPIC_ARN", "value": "" },
