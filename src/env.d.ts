@@ -6,5 +6,6 @@ declare namespace NodeJS {
     SECRET_ACCESS_KEY: string;
     REGION: string;
     API_SCRAPER_KEY: string;
+    QUEUE_URL: string;
   }
 }

@@ -1,0 +1,9 @@
+{
+  "Effect": "Allow",
+  "Action": [
+    "sqs:ReceiveMessage",
+    "sqs:DeleteMessage",
+    "sqs:GetQueueAttributes"
+  ],
+  "Resource": "<your SQS queue ARN>"
+}
