@@ -1,4 +1,3 @@
-import { PublishCommand, SNSClient } from "@aws-sdk/client-sns";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { ISQSMessage } from "../SQS.types";
 import { formatMessage } from "./notifier.utils";
@@ -7,7 +6,7 @@ import { listAllUsers } from "../cognito/cognitoData";
 const REGION = process.env.REGION!;
 // const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
 
-const sns = new SNSClient({ region: REGION });
+// const sns = new SNSClient({ region: REGION });
 const ses = new SESClient({ region: REGION });
 
 export const notifier = async ({
@@ -50,12 +49,11 @@ export const notifier = async ({
           await ses.send(
             new SendEmailCommand({
               Source: process.env.SES_FROM_EMAIL!, // must be verified in SES
-              Destination: { ToAddresses: [email] },
+              Destination: { ToAddresses: [email.Value!] },
               Message: {
                 Subject: { Data: subject },
                 Body: {
-                  Text: { Data: text },
-                  Html: { Data: `<p>${text}</p>` },
+                  Text: { Data: message },
                 },
               },
             })
@@ -63,14 +61,8 @@ export const notifier = async ({
           console.log(`📧 Email sent to ${email}`);
         }
         // We are not using SNS Topic as we cannot dynamically set phone/email there
-        // await sns.send(
-        //   new PublishCommand({
-        //     TopicArn: SNS_TOPIC,
-        //     Message: JSON.stringify(message),
-        //     Subject: `Good news there is a match for: ${productId}`,
-        //   })
-        // );
-        console.log(`✅ SNS notification sent for ${productId} to ${userSub}`);
+
+        console.log(`✅ SES notification sent for ${productId} to ${userSub}`);
       }
     }
   } catch (err) {

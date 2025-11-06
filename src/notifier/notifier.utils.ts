@@ -6,7 +6,7 @@ export const formatMessage = ({
   date,
   productUrl,
 }: IMessageParams) => {
-  `
+  return `
     <h1>Alerta de bajada de precio</h1>
     <p><strong>Producto:</strong> ${title}</p>
     <p><strong>Precio:</strong> ${price}</p>

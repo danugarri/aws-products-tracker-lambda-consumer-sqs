@@ -2,7 +2,7 @@ import { scraper } from "./scraper/apiscraper";
 import { ISQSMessage } from "./SQS.types";
 import type { Message } from "aws-sdk/clients/sqs";
 import { parsePrice } from "./utils/format";
-import { notifier } from "./notifier";
+import { notifier } from "./notifier/notifier";
 
 // Process single SQS message record
 export async function processRecord(record: Message) {
