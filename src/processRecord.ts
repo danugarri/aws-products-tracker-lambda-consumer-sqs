@@ -1,6 +1,6 @@
 import { scraper } from "./scraper/apiscraper";
 import { ISQSMessage } from "./SQS.types";
-import type { Message } from "aws-sdk/clients/sqs";
+import type { Message } from "@aws-sdk/client-sqs";
 import { parsePrice } from "./utils/format";
 import { notifier } from "./notifier/notifier";
 
