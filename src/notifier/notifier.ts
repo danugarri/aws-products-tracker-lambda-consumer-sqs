@@ -28,7 +28,7 @@ export const notifier = async ({
   });
   const USER_POOL_ID = process.env.USER_POOL_ID!;
   const users = await listAllUsers(USER_POOL_ID);
-
+  let userEmail: string | null = null;
   try {
     for (const user of users) {
       if (user.Username === userSub) {
@@ -46,9 +46,10 @@ export const notifier = async ({
           (attribute) => attribute.Name === "email"
         );
         if (email) {
+          userEmail = email.Value!;
           await ses.send(
             new SendEmailCommand({
-              Source: process.env.SES_FROM_EMAIL!, // must be verified in SES
+              Source: process.env.SES_FROM_EMAIL!, // must be verified in SES for now my personal email
               Destination: { ToAddresses: [email.Value!] },
               Message: {
                 Subject: { Data: subject },
@@ -66,7 +67,10 @@ export const notifier = async ({
       }
     }
   } catch (err) {
-    console.error(`❌ Failed to publish SNS for ${productId}:`, err);
+    console.error(
+      `❌ Failed to publish SES for ${productId} and email-> ${userEmail}:`,
+      err
+    );
     throw err;
   }
 };
