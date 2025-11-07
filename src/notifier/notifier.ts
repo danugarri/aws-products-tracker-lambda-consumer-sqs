@@ -1,7 +1,7 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { ISQSMessage } from "../SQS.types";
-import { formatMessage } from "./notifier.utils";
 import { listAllUsers } from "../cognito/cognitoData";
+import { formatMessage } from "./notifier.utils";
 
 const REGION = process.env.REGION!;
 // const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
@@ -54,7 +54,7 @@ export const notifier = async ({
               Message: {
                 Subject: { Data: subject },
                 Body: {
-                  Text: { Data: message },
+                  Html: { Data: message },
                 },
               },
             })
