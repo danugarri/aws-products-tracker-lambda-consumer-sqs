@@ -16,12 +16,12 @@ export const notifier = async ({
   body: ISQSMessage;
   currentPrice: string;
 }) => {
-  const { userSub, productId, productUrl } = body;
+  const { userSub, productTitle, productUrl, productId } = body;
   const now = Math.floor(Date.now() / 1000);
 
-  const subject = `Good news there is a match for: ${productId}`;
+  const subject = `Good news there is a match for: ${productTitle}`;
   const message = formatMessage({
-    title: productId,
+    title: productTitle,
     price: currentPrice,
     date: new Date(now * 1000).toLocaleString(),
     productUrl,
