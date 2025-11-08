@@ -1,22 +1,16 @@
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { ISQSMessage } from "../SQS.types";
 import { listAllUsers } from "../cognito/cognitoData";
 import { formatMessage } from "./notifier.utils";
+import {
+  ChannelsMapperType,
+  INotifierParams,
+  NotificationMethod,
+} from "./notifier.types";
+import { sendEmail } from "../utils/channels/email";
 
-const REGION = process.env.REGION!;
-// const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
+const USER_POOL_ID = process.env.USER_POOL_ID!;
 
-// const sns = new SNSClient({ region: REGION });
-const ses = new SESClient({ region: REGION });
-
-export const notifier = async ({
-  body,
-  currentPrice,
-}: {
-  body: ISQSMessage;
-  currentPrice: string;
-}) => {
-  const { userSub, productTitle, productUrl, productId } = body;
+export const notifier = async ({ body, currentPrice }: INotifierParams) => {
+  const { userSub, productTitle, productUrl, productId, channel } = body;
   const now = Math.floor(Date.now() / 1000);
 
   const subject = `Good news there is a match for: ${productTitle}`;
@@ -26,49 +20,24 @@ export const notifier = async ({
     date: new Date(now * 1000).toLocaleString(),
     productUrl,
   });
-  const USER_POOL_ID = process.env.USER_POOL_ID!;
+
   const users = await listAllUsers(USER_POOL_ID);
-  let userEmail: string | null = null;
+
+  const channelsMapper: ChannelsMapperType = {
+    [NotificationMethod.EMAIL]: sendEmail,
+    [NotificationMethod.PUSH_NOTIFICATION]: sendEmail,
+    [NotificationMethod.SMS]: sendEmail,
+    [NotificationMethod.WHATSAPP]: sendEmail,
+  };
   try {
     for (const user of users) {
       if (user.Username === userSub) {
-        // 3️⃣ Publish directly to SNS target
-        // if (phone) {
-        //   await sns.send(
-        //     new PublishCommand({
-        //       Message: JSON.stringify(message),
-        //       PhoneNumber: phone,
-        //     })
-        //   );
-        //   console.log(`📱 SMS sent to ${phone}`);
-        // }
-        const email = user.Attributes?.find(
-          (attribute) => attribute.Name === "email"
-        );
-        if (email) {
-          userEmail = email.Value!;
-          await ses.send(
-            new SendEmailCommand({
-              Source: process.env.SES_FROM_EMAIL!, // must be verified in SES for now my personal email
-              Destination: { ToAddresses: [email.Value!] },
-              Message: {
-                Subject: { Data: subject },
-                Body: {
-                  Html: { Data: message },
-                },
-              },
-            })
-          );
-          console.log(`📧 Email sent to ${email}`);
-        }
-        // We are not using SNS Topic as we cannot dynamically set phone/email there
-
-        console.log(`✅ SES notification sent for ${productId} to ${userSub}`);
+        await channelsMapper[channel]({ user, body, message, subject });
       }
     }
   } catch (err) {
     console.error(
-      `❌ Failed to publish SES for ${productId} and email-> ${userEmail}:`,
+      `❌ Failed to send Notification for channel: ${channel} and ${productId} for user: ${userSub}`,
       err
     );
     throw err;
