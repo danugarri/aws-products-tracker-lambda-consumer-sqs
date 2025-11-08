@@ -11,7 +11,8 @@ import DEFAULT from "../utils/channels/default";
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
 export const notifier = async ({ body, currentPrice }: INotifierParams) => {
-  const { userSub, productTitle, productUrl, productId, channel } = body;
+  const { userSub, productTitle, productUrl, productId, channel, targetPrice } =
+    body;
   const now = Math.floor(Date.now() / 1000);
 
   const subject = `Good news there is a match for: ${productTitle}`;
@@ -33,7 +34,19 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
   try {
     for (const user of users) {
       if (user.Username === userSub) {
-        await channelsMapper[channel]({ user, body, message, subject });
+        await channelsMapper[channel]({
+          user,
+          body: {
+            userSub,
+            productTitle,
+            productUrl,
+            productId,
+            channel,
+            targetPrice,
+          },
+          message,
+          subject,
+        });
       }
     }
   } catch (err) {
