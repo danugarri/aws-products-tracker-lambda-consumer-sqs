@@ -40,7 +40,7 @@ export const formatMessage = ({
                 "
               >
                 <img
-                  src="${"../../assets/logo.svg"}"
+                  src="../../assets/logo.svg"
                   alt="AWS Products Tracker"
                   width="50"
                   height="50"
