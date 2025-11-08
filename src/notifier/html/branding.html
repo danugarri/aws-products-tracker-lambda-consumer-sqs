@@ -1,12 +1,11 @@
-import { IMessageParams } from "./notifier.types";
-
-export const formatMessage = ({
-  title,
-  price,
-  date,
-  productUrl,
-}: IMessageParams) => {
-  return `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
     <table
       role="presentation"
       cellpadding="0"
@@ -39,18 +38,29 @@ export const formatMessage = ({
                   background-color: #3b82f6;
                 "
               >
-                <img
-                  src="${"../../assets/logo.svg"}"
-                  alt="AWS Products Tracker"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   width="50"
                   height="50"
-                  style="
-                    display: block;
-                    border: 0;
-                    outline: none;
-                    text-decoration: none;
-                  "
-                />
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <!-- Fondo azul con padding extra alrededor (32x32 canvas) -->
+                  <rect width="32" height="32" fill="blue" rx="6" />
+
+                  <!-- Ícono centrado con translate -->
+                  <g transform="translate(4,4)">
+                    <path
+                      d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"
+                    />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </g>
+                </svg>
                 <p style="color: white; font-size: x-large; text-align: center">
                   AWS Products Tracker
                 </p>
@@ -141,5 +151,5 @@ export const formatMessage = ({
         </td>
       </tr>
     </table>
-  `;
-};
+  </body>
+</html>
