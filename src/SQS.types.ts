@@ -5,6 +5,6 @@ export interface ISQSMessage {
   productId: string;
   productUrl: string;
   targetPrice: number;
-  productTitle: string;
+  title: string;
   channel: Channel;
 }

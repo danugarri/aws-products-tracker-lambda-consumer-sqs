@@ -11,13 +11,12 @@ import DEFAULT from "../utils/channels/default";
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
 export const notifier = async ({ body, currentPrice }: INotifierParams) => {
-  const { userSub, productTitle, productUrl, productId, channel, targetPrice } =
-    body;
+  const { userSub, title, productUrl, productId, channel, targetPrice } = body;
   const now = Math.floor(Date.now() / 1000);
 
-  const subject = `Good news there is a match for: ${productTitle}`;
+  const subject = `Good news there is a match for: ${title}`;
   const message = formatMessage({
-    title: productTitle,
+    title,
     price: currentPrice,
     date: new Date(now * 1000).toLocaleString(),
     productUrl,
@@ -38,7 +37,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
           user,
           body: {
             userSub,
-            productTitle,
+            title,
             productUrl,
             productId,
             channel,
