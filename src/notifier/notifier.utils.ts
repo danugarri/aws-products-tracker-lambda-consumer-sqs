@@ -40,7 +40,7 @@ export const formatMessage = ({
                 "
               >
                 <img
-                  src="../assets/logo.svg"
+                  src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/logo.svg"
                   alt="AWS Products Tracker"
                   width="50"
                   height="50"
