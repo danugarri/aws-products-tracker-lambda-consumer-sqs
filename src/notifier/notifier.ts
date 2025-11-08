@@ -6,6 +6,7 @@ import {
   NotificationMethod,
 } from "./notifier.types";
 import { sendEmail } from "../utils/channels/email";
+import DEFAULT from "../utils/channels/default";
 
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
@@ -25,9 +26,9 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
 
   const channelsMapper: ChannelsMapperType = {
     [NotificationMethod.EMAIL]: sendEmail,
-    [NotificationMethod.PUSH_NOTIFICATION]: sendEmail,
-    [NotificationMethod.SMS]: sendEmail,
-    [NotificationMethod.WHATSAPP]: sendEmail,
+    [NotificationMethod.PUSH_NOTIFICATION]: DEFAULT,
+    [NotificationMethod.SMS]: DEFAULT,
+    [NotificationMethod.WHATSAPP]: DEFAULT,
   };
   try {
     for (const user of users) {
