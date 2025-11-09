@@ -7,18 +7,22 @@ import {
 } from "./notifier.types";
 import { sendEmail } from "../utils/channels/email";
 import DEFAULT from "../utils/channels/default";
+import { time } from "console";
 
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
 export const notifier = async ({ body, currentPrice }: INotifierParams) => {
   const { userSub, title, productUrl, productId, channel, targetPrice } = body;
   const now = Math.floor(Date.now() / 1000);
+  const timeZone = new Intl.DateTimeFormat().resolvedOptions().locale;
+  const formattedDate = new Date(now * 1000).toLocaleString(timeZone);
+  console.log({ timeZone, formattedDate });
 
   const subject = `Good news there is a match for: ${title}`;
   const message = formatMessage({
     title,
     price: currentPrice,
-    date: new Date(now * 1000).toLocaleString(),
+    date: formattedDate,
     productUrl,
   });
 
