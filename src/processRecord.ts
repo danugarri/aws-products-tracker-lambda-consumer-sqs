@@ -11,22 +11,21 @@ export async function processRecord(record: Message) {
 
   // 1) Validate message
 
-  const { userSub, productId, productUrl, targetPrice } = body;
-  if (!userSub || !productId || !productUrl) {
-    throw new Error(`Invalid message payload: ${record.Body}`);
+  if (!body.userSub || !body.productId || !body.productUrl) {
+    throw new Error(`Invalid message payload: ${body}`);
   }
 
   // 2) Scrape current price
-  const { currentPrice } = await scraper(productUrl);
+  const { currentPrice } = await scraper(body.productUrl);
   const parsedPrice = parsePrice(currentPrice);
-  const isMatch = parsedPrice <= targetPrice;
+  const isMatch = parsedPrice <= body.targetPrice;
 
   // 3) Compare
   if (isMatch) {
     await notifier({ body, currentPrice });
   } else {
     console.log(
-      `ℹ️ Price not matched for ${productId}: target=${targetPrice}, current=${parsedPrice}`
+      `ℹ️ Price not matched for ${body.productId}: target=${body.targetPrice}, current=${parsedPrice}`
     );
   }
 }
