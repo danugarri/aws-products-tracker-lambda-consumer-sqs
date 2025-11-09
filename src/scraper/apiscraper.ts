@@ -4,7 +4,7 @@ import { ParsedData, parser, ScraperData } from "./parser";
 export const scraper = async (url: string): Promise<ParsedData> => {
   console.log({ url, AMAZON_PARTNER_TAG: process.env.AMAZON_PARTNER_TAG });
   try {
-    const formattedUrl = `${API_SCRAPER_DOMAIN}/?api_key=${process.env.API_SCRAPER_KEY}&url=${url}&tag=${process.env.AMAZON_PARTNER_TAG}&device_type=desktop&output_format=json&autoparse=true`;
+    const formattedUrl = `${API_SCRAPER_DOMAIN}/?api_key=${process.env.API_SCRAPER_KEY}&url=${url}&device_type=desktop&output_format=json&autoparse=true`;
     console.log({ formattedUrl });
     const response = await fetch(formattedUrl);
     // console.log({ response });
