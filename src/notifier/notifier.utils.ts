@@ -5,15 +5,29 @@ export const formatMessage = ({
   price,
   date,
   productUrl,
+  imageUrl,
 }: IMessageParams) => {
   return `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    style="
+      background-color: #f5f7fb;
+      font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+    "
+  >
     <table
       role="presentation"
       cellpadding="0"
       cellspacing="0"
       border="0"
       width="100%"
-      style="background-color: #f5f7fb"
     >
       <tr>
         <td align="center">
@@ -28,32 +42,47 @@ export const formatMessage = ({
           >
             <!-- Header -->
             <tr>
-              <td
-                align="left"
-                bgcolor="#3B82F6"
-                style="
-                  display: grid;
-                  align-items: center;
-                  grid-template-columns: 50px 1fr;
-                  padding: 16px 20px;
-                  background-color: #3b82f6;
-                "
-              >
-                <img
-                  src=https://products-tracker-assets.s3.us-east-1.amazonaws.com/logo.png"
-                  alt="AWS Products Tracker"
-                  width="50"
-                  height="50"
+              <td style="background-color: #ffffff">
+                <a
+                  href="https://aws-products-tracker.netlify.app/"
+                  target="_blank"
                   style="
-                    display: block;
-                    border: 0;
-                    outline: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 20px;
                     text-decoration: none;
                   "
-                />
-                <p style="color: white; font-size: x-large; text-align: center">
-                  AWS Products Tracker
-                </p>
+                  ><div>
+                    <img
+                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/logo.png"
+                      alt="AWS Products Tracker"
+                      width="50"
+                      height="50"
+                      style="
+                        display: block;
+                        border: 0;
+                        outline: none;
+                        text-decoration: none;
+                      "
+                    />
+                  </div>
+                  <div>
+                    <h1 style="color: rgb(26, 33, 45); margin: 0">
+                      Amazon Products Tracker
+                    </h1>
+                    <p
+                      style="
+                        font-size: 0.75rem;
+                        line-height: 1rem;
+                        color: rgb(107, 114, 128);
+                        margin: 0;
+                      "
+                    >
+                      Tu lista de productos inteligente
+                    </p>
+                  </div></a
+                >
               </td>
             </tr>
 
@@ -94,6 +123,24 @@ export const formatMessage = ({
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
+                  align="center"
+                >
+                  <tr>
+                    <td>
+                      <img
+                        src="${imageUrl}"
+                        alt="Imagen del producto"
+                        style="max-width: 100%; height: 300px"
+                      />
+                    </td>
+                  </tr>
+                </table>
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  align="center"
                 >
                   <tr>
                     <td
@@ -133,13 +180,16 @@ export const formatMessage = ({
                   color: #6b7280;
                 "
               >
-                Recibes este aviso porque sigues este producto en AWS Products
-                Tracker. Gestiona tus alertas desde tu cuenta.
+                Recibes este aviso porque sigues este producto en Amazon
+                Products Tracker. Gestiona tus alertas desde tu cuenta.
               </td>
             </tr>
           </table>
         </td>
       </tr>
     </table>
+  </body>
+</html>
+
   `;
 };

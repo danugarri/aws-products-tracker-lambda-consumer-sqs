@@ -11,7 +11,15 @@ import DEFAULT from "../utils/channels/default";
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
 export const notifier = async ({ body, currentPrice }: INotifierParams) => {
-  const { userSub, title, productUrl, productId, channel, targetPrice } = body;
+  const {
+    userSub,
+    title,
+    productUrl,
+    productId,
+    channel,
+    targetPrice,
+    imageUrl,
+  } = body;
 
   const timeZone = new Intl.DateTimeFormat().resolvedOptions().locale;
   const formattedDate = new Date().toLocaleString(timeZone);
@@ -23,6 +31,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
     price: currentPrice,
     date: formattedDate,
     productUrl,
+    imageUrl,
   });
 
   const users = await listAllUsers(USER_POOL_ID);
@@ -45,6 +54,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
             productId,
             channel,
             targetPrice,
+            imageUrl,
           },
           message,
           subject,

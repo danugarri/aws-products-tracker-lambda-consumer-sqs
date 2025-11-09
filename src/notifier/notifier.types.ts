@@ -6,6 +6,7 @@ export interface IMessageParams {
   price: string;
   date: string;
   productUrl: string;
+  imageUrl: string;
 }
 export interface INotifierParams {
   body: ISQSMessage;

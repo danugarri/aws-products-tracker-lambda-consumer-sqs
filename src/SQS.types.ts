@@ -7,4 +7,5 @@ export interface ISQSMessage {
   targetPrice: number;
   title: string;
   channel: Channel;
+  imageUrl: string;
 }
