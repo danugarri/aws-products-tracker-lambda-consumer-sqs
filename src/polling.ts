@@ -1,8 +1,7 @@
-import AWS from "aws-sdk";
+import { SQS, Message } from "@aws-sdk/client-sqs";
 import { processRecord } from "./processRecord";
 
-// Configure AWS SDK
-const sqs = new AWS.SQS({ region: process.env.REGION });
+const sqs = new SQS({ region: process.env.REGION });
 const QUEUE_URL = process.env.QUEUE_URL!;
 
 if (!QUEUE_URL) {
@@ -20,13 +19,11 @@ export async function pollQueue() {
 
   while (true) {
     try {
-      const data = await sqs
-        .receiveMessage({
-          QueueUrl: QUEUE_URL,
-          MaxNumberOfMessages: MAX_MESSAGES,
-          WaitTimeSeconds: WAIT_TIME,
-        })
-        .promise();
+      const data = await sqs.receiveMessage({
+        QueueUrl: QUEUE_URL,
+        MaxNumberOfMessages: MAX_MESSAGES,
+        WaitTimeSeconds: WAIT_TIME,
+      });
 
       if (!data.Messages || data.Messages.length === 0) {
         continue; // no messages, poll again
@@ -34,13 +31,12 @@ export async function pollQueue() {
 
       for (const message of data.Messages) {
         try {
-          await processRecord(message as AWS.SQS.Message); // your existing record processing
-          await sqs
-            .deleteMessage({
-              QueueUrl: QUEUE_URL,
-              ReceiptHandle: message.ReceiptHandle!,
-            })
-            .promise();
+          await processRecord(message as Message);
+          await sqs.deleteMessage({
+            QueueUrl: QUEUE_URL,
+            ReceiptHandle: message.ReceiptHandle!,
+          });
+
           console.log(`Processed and deleted message ${message.MessageId}`);
         } catch (err) {
           console.error(`Error processing message ${message.MessageId}:`, err);
