@@ -56,7 +56,7 @@ export const formatMessage = ({
                   ><div>
                     <img
                       src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.svg"
-                      alt="AWS Products Tracker"
+                      alt="Pricio"
                       width="30"
                       height="30"
                       style="
@@ -69,7 +69,7 @@ export const formatMessage = ({
                   </div>
                   <div>
                     <h1 style="color: rgb(26, 33, 45); margin: 0">
-                      Amazon Products Tracker
+                     Pricio
                     </h1>
                     <p
                       style="
@@ -180,8 +180,7 @@ export const formatMessage = ({
                   color: #6b7280;
                 "
               >
-                Recibes este aviso porque sigues este producto en Amazon
-                Products Tracker. Gestiona tus alertas desde tu cuenta.
+                Recibes este aviso porque sigues este producto en Pricio. Gestiona tus alertas desde tu cuenta.
               </td>
             </tr>
           </table>
