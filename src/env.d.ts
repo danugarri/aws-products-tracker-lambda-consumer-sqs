@@ -6,5 +6,7 @@ declare namespace NodeJS {
     API_SCRAPER_KEY: string;
     USER_POOL_ID: string;
     QUEUE_URL: string;
+    AMAZON_PARTNER_TAG: string;
+    SES_FROM_EMAIL: string;
   }
 }

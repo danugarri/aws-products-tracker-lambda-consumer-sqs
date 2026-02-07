@@ -11,7 +11,7 @@ dotenv.config({ path: "../../.env" });
 
 // Load environment variables safely
 const REGION = process.env.REGION!;
-const USER_POOL_ID = process.env.USER_POOL_ID!;
+// const USER_POOL_ID = process.env.USER_POOL_ID!;
 
 const client = new CognitoIdentityProviderClient({
   region: REGION,
@@ -42,10 +42,10 @@ export async function listAllUsers(userPoolId: string): Promise<UserType[]> {
   return allUsers;
 }
 
-(async () => {
-  const users = await listAllUsers(USER_POOL_ID);
-  console.log({ users });
-  users.map((property) => {
-    console.log(property.Attributes);
-  });
-})();
+// (async () => {
+//   const users = await listAllUsers(USER_POOL_ID);
+//   console.log({ users });
+//   users.map((property) => {
+//     console.log(property.Attributes);
+//   });
+// })();
