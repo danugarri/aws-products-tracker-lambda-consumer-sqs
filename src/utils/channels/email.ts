@@ -15,7 +15,7 @@ export const sendEmail = async ({
 
   try {
     const email = user.Attributes?.find(
-      (attribute) => attribute.Name === "email"
+      (attribute) => attribute.Name === "email",
     );
     if (email) {
       userEmail = email.Value!;
@@ -29,19 +29,19 @@ export const sendEmail = async ({
               Html: { Data: message },
             },
           },
-        })
+        }),
       );
-      console.log(`📧 Email sent to ${email}`);
+      console.log(`📧 Email sent to ${email.Value}`);
     }
     // We are not using SNS Topic as we cannot dynamically set phone/email there
 
     console.log(
-      `✅ SES notification sent for ${body.productId} to ${body.userSub}`
+      `✅ SES notification sent for ${body.productId} to ${body.userSub}`,
     );
   } catch (error) {
     console.error(
       `❌ Failed to publish SES for ${body.productId} and email-> ${userEmail}:`,
-      error
+      error,
     );
     throw new EmailError((error as Error).message);
   }
