@@ -33,6 +33,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
     productUrl,
     imageUrl,
   });
+  console.log({ message });
 
   const users = await listAllUsers(USER_POOL_ID);
 
@@ -45,6 +46,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
   try {
     for (const user of users) {
       if (user.Username === userSub) {
+        console.log({ user }, "checking user");
         await channelsMapper[channel]({
           user,
           body: {
@@ -59,12 +61,15 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
           message,
           subject,
         });
+      } else {
+        console.log(`User with sub ${userSub} not found in Cognito.`);
+        throw new Error(`User with sub ${userSub} not found in Cognito.`);
       }
     }
   } catch (err) {
     console.error(
       `❌ Failed to send Notification for channel: ${channel} and ${productId} for user: ${userSub}`,
-      err
+      err,
     );
     throw err;
   }

@@ -18,28 +18,33 @@ const client = new CognitoIdentityProviderClient({
 });
 
 export async function listAllUsers(userPoolId: string): Promise<UserType[]> {
-  console.log({ userPoolId });
-  let paginationToken: string | undefined = undefined;
-  const allUsers: UserType[] = [];
+  try {
+    console.log({ userPoolId });
+    let paginationToken: string | undefined = undefined;
+    const allUsers: UserType[] = [];
 
-  do {
-    const input: ListUsersCommandInput = {
-      UserPoolId: userPoolId,
-      PaginationToken: paginationToken,
-      Limit: 60,
-    };
+    do {
+      const input: ListUsersCommandInput = {
+        UserPoolId: userPoolId,
+        PaginationToken: paginationToken,
+        Limit: 60,
+      };
 
-    const command = new ListUsersCommand(input);
-    const response: ListUsersCommandOutput = await client.send(command);
+      const command = new ListUsersCommand(input);
+      const response: ListUsersCommandOutput = await client.send(command);
 
-    if (response.Users) {
-      allUsers.push(...response.Users);
-    }
+      if (response.Users) {
+        allUsers.push(...response.Users);
+      }
 
-    paginationToken = response.PaginationToken;
-  } while (paginationToken);
-
-  return allUsers;
+      paginationToken = response.PaginationToken;
+    } while (paginationToken);
+    console.log({ allUsers }, "Users retrieved from Cognito");
+    return allUsers;
+  } catch (error) {
+    console.error("Error listing users from Cognito:", error);
+    throw error;
+  }
 }
 
 // (async () => {
