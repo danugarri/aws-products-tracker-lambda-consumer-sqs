@@ -33,7 +33,6 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
     productUrl,
     imageUrl,
   });
-  console.log({ message });
 
   const users = await listAllUsers(USER_POOL_ID);
 
@@ -61,9 +60,6 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
           message,
           subject,
         });
-      } else {
-        console.log(`User with sub ${userSub} not found in Cognito.`);
-        throw new Error(`User with sub ${userSub} not found in Cognito.`);
       }
     }
   } catch (err) {
