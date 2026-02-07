@@ -55,7 +55,7 @@ export const formatMessage = ({
                   "
                   ><div>
                     <img
-                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.svg"
+                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
                       alt="Pricio"
                       width="30"
                       height="30"
