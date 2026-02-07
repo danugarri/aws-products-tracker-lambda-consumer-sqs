@@ -55,7 +55,7 @@ export const formatMessage = ({
                   "
                   ><div>
                     <img
-                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/logo.png"
+                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.svg"
                       alt="AWS Products Tracker"
                       width="30"
                       height="30"
