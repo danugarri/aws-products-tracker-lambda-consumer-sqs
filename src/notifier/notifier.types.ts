@@ -25,7 +25,7 @@ export type ChannelParams = {
   user: UserType;
   subject: string;
   message: string;
-  body: ISQSMessage;
+  body: Omit<ISQSMessage, "locale">;
 };
 export type ChannelsMapperType = Record<
   NotificationMethod,

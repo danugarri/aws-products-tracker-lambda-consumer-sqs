@@ -1,0 +1,10 @@
+{
+  "EMAIL_APP_TITLE": "Pricio",
+  "EMAIL_APP_SUBTITLE": "Il tuo elenco intelligente di prodotti",
+  "EMAIL_SUBJECT": "Avviso di calo dei prezzi",
+  "EMAIL_PRODUCT_TITLE": "Prodotto",
+  "EMAIL_PRODUCT_PRICE": "Prezzo",
+  "EMAIL_PRODUCT_DATE": "Data",
+  "EMAIL_CTA_BUTTON": "Visualizza Prodotto",
+  "EMAIL_FOOTER": "Ricevi questa notifica perché segui questo prodotto su {{appName}}. Gestisci i tuoi avvisi dal tuo account."
+}

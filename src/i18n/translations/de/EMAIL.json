@@ -1,0 +1,10 @@
+{
+  "EMAIL_APP_TITLE": "Pricio",
+  "EMAIL_APP_SUBTITLE": "Ihre intelligente Produktliste",
+  "EMAIL_SUBJECT": "Preisrückgang-Benachrichtigung",
+  "EMAIL_PRODUCT_TITLE": "Produkt",
+  "EMAIL_PRODUCT_PRICE": "Preis",
+  "EMAIL_PRODUCT_DATE": "Datum",
+  "EMAIL_CTA_BUTTON": "Produkt anzeigen",
+  "EMAIL_FOOTER": "Sie erhalten diese Benachrichtigung, weil Sie dieses Produkt auf {{appName}} verfolgen. Verwalten Sie Ihre Benachrichtigungen über Ihr Konto."
+}

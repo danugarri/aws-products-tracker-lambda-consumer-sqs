@@ -19,9 +19,10 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
     channel,
     targetPrice,
     imageUrl,
+    locale,
   } = body;
 
-  const timeZone = new Intl.DateTimeFormat().resolvedOptions().locale;
+  const timeZone = new Intl.DateTimeFormat(locale).resolvedOptions().locale;
   const formattedDate = new Date().toLocaleString(timeZone);
   console.log({ title });
 

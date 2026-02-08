@@ -1,3 +1,4 @@
+import i18next from "i18next";
 import { IMessageParams } from "./notifier.types";
 
 export const formatMessage = ({
@@ -7,6 +8,8 @@ export const formatMessage = ({
   productUrl,
   imageUrl,
 }: IMessageParams) => {
+  const appName = `${i18next.t("EMAIL_APP_TITLE")}`;
+
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -47,10 +50,10 @@ export const formatMessage = ({
           </td>
           <td valign="middle" style="padding-left:12px;">
             <h1 style="margin:0; font-size:24px; line-height:1.2; color:#1A212D; font-family: Arial, Helvetica, sans-serif;">
-              Pricio
+             {${i18next.t("EMAIL_APP_TITLE")}}
             </h1>
             <p style="margin:0; font-size:12px; line-height:16px; color:#6B7280; font-family: Arial, Helvetica, sans-serif;">
-              Tu lista de productos inteligente
+              {${i18next.t("EMAIL_APP_SUBTITLE")}}
             </p>
           </td>
         </tr>
@@ -80,16 +83,17 @@ export const formatMessage = ({
                     color: #111827;
                   "
                 >
-                  Alerta de bajada de precio
+              {${i18next.t("EMAIL_SUBJECT")}}
+
                 </h1>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong>Producto:</strong> ${title}
+                  <strong> {${i18next.t("EMAIL_PRODUCT_TITLE")}}:</strong> ${title}
                 </p>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong>Precio:</strong> ${price}
+                  <strong> {${i18next.t("EMAIL_PRODUCT_PRICE")}}:</strong> ${price}
                 </p>
                 <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.6">
-                  <strong>Fecha:</strong> ${date}
+                  <strong> {${i18next.t("EMAIL_PRODUCT_DATE")}}:</strong> ${date}
                 </p>
 
                 <table
@@ -135,7 +139,7 @@ export const formatMessage = ({
                           border-radius: 8px;
                         "
                       >
-                        Ver Producto
+                        {${i18next.t("EMAIL_CTA_BUTTON")}}
                       </a>
                     </td>
                   </tr>
@@ -154,8 +158,7 @@ export const formatMessage = ({
                   color: #6b7280;
                 "
               >
-                Recibes este aviso porque sigues este producto en Pricio. Gestiona tus alertas desde tu cuenta.
-              </td>
+            {${i18next.t("EMAIL_FOOTER", { appName })}}
             </tr>
           </table>
         </td>

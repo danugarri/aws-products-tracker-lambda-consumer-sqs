@@ -22,7 +22,9 @@
     "@aws-sdk/client-sns": "^3.918.0",
     "@aws-sdk/client-sqs": "^3.926.0",
     "@types/aws-lambda": "^8.10.157",
-    "dotenv": "^17.2.1"
+    "dotenv": "^17.2.1",
+    "i18next": "^25.8.4",
+    "i18next-fs-backend": "^2.6.1"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
