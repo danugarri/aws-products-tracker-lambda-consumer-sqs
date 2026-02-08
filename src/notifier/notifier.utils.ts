@@ -38,7 +38,7 @@ export const formatMessage = ({
             cellspacing="0"
             border="0"
             width="600"
-            style="width: 600px; max-width: 100%"
+            style="width: 600px; max-width: 100%; padding: 50px"
           >
             <!-- Header -->
             <tr>
