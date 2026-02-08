@@ -1,22 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Amazon Products Tracker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body
     style="
       background-color: #f5f7fb;
-      font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        sans-serif,
+        &quot;Apple Color Emoji&quot;,
+        &quot;Segoe UI Emoji&quot;,
+        Segoe UI Symbol,
+        &quot;Noto Color Emoji&quot;;
     "
   >
     <table
       role="presentation"
-      cellspacing="0"
       cellpadding="0"
+      cellspacing="0"
       border="0"
       width="100%"
     >
@@ -25,72 +30,65 @@
           <!-- Container -->
           <table
             role="presentation"
-            cellspacing="0"
             cellpadding="0"
+            cellspacing="0"
             border="0"
             width="600"
-            style="max-width: 600px; width: 100%; background-color: #ffffff;  margin-top:60px;"
-          "
+            style="width: 600px; max-width: 100%"
           >
             <!-- Header -->
             <tr>
-              <td style="padding: 20px; background-color: #ffffff">
+              <td style="background-color: #ffffff">
                 <a
                   href="https://aws-products-tracker.netlify.app/"
                   target="_blank"
-                  style="text-decoration: none"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 20px;
+                    text-decoration: none;
+                  "
+                  ><div>
+                    <img
+                      src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
+                      alt="Pricio"
+                      width="80"
+                      height="80"
+                      style="
+                        display: block;
+                        border: 0;
+                        outline: none;
+                        text-decoration: none;
+                      "
+                    />
+                  </div>
+                  <div>
+                    <h1 style="color: rgb(26, 33, 45); margin: 0">Pricio</h1>
+                    <p
+                      style="
+                        font-size: 0.75rem;
+                        line-height: 1rem;
+                        color: rgb(107, 114, 128);
+                        margin: 0;
+                      "
+                    >
+                      Tu lista de productos inteligente
+                    </p>
+                  </div></a
                 >
-                  <table
-                    role="presentation"
-                    cellspacing="0"
-                    cellpadding="0"
-                    border="0"
-                  >
-                    <tr>
-                      <td style="padding-right: 12px">
-                        <img
-                          src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/logo.png"
-                          alt="AWS Products Tracker"
-                          width="50"
-                          height="50"
-                          style="display: block; border: 0; outline: none"
-                        />
-                      </td>
-                      <td align="left" valign="middle">
-                        <h1
-                          style="
-                            color: #1a212d;
-                            margin: 0;
-                            font-size: 32px;
-                            line-height: 1.2;
-                            font-weight: 700;
-                          "
-                        >
-                          Amazon Products Tracker
-                        </h1>
-                        <p
-                          style="
-                            font-size: 12px;
-                            line-height: 1.4;
-                            color: #6b7280;
-                            margin: 0;
-                          "
-                        >
-                          Tu lista de productos inteligente
-                        </p>
-                      </td>
-                    </tr>
-                  </table>
-                </a>
               </td>
             </tr>
 
             <!-- Body -->
             <tr>
               <td
+                align="left"
+                bgcolor="#FFFFFF"
                 style="
                   background-color: #ffffff;
                   padding: 24px 20px;
+                  font-family: Arial, Helvetica, sans-serif;
                   color: #111827;
                 "
               >
@@ -104,7 +102,6 @@
                 >
                   Alerta de bajada de precio
                 </h1>
-
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
                   <strong>Producto:</strong> ${title}
                 </p>
@@ -117,28 +114,25 @@
 
                 <table
                   role="presentation"
-                  cellspacing="0"
                   cellpadding="0"
+                  cellspacing="0"
                   border="0"
-                  width="100%"
-                  style="margin-bottom: 16px"
+                  align="center"
                 >
                   <tr>
-                    <td align="center">
+                    <td>
                       <img
-                        src="https://m.media-amazon.com/images/I/41L0RYgTgSL.jpg"
+                        src="${imageUrl}"
                         alt="Imagen del producto"
-                        width="100%"
-                        style="max-width: 300px; height: auto; display: block"
+                        style="max-width: 100%; height: 300px"
                       />
                     </td>
                   </tr>
                 </table>
-
                 <table
                   role="presentation"
-                  cellspacing="0"
                   cellpadding="0"
+                  cellspacing="0"
                   border="0"
                   align="center"
                 >
@@ -153,12 +147,12 @@
                         style="
                           display: inline-block;
                           padding: 12px 24px;
+                          font-family: Arial, Helvetica, sans-serif;
                           font-size: 16px;
                           line-height: 16px;
                           color: #ffffff;
                           text-decoration: none;
                           border-radius: 8px;
-                          font-weight: 600;
                         "
                       >
                         Ver Producto
@@ -173,10 +167,15 @@
             <tr>
               <td
                 align="center"
-                style="padding: 16px 20px; font-size: 12px; color: #6b7280"
+                style="
+                  padding: 16px 20px;
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 12px;
+                  color: #6b7280;
+                "
               >
-                Recibes este aviso porque sigues este producto en Amazon
-                Products Tracker. Gestiona tus alertas desde tu cuenta.
+                Recibes este aviso porque sigues este producto en Pricio.
+                Gestiona tus alertas desde tu cuenta.
               </td>
             </tr>
           </table>

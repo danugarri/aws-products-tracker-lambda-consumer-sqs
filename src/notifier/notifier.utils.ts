@@ -57,8 +57,8 @@ export const formatMessage = ({
                     <img
                       src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
                       alt="Pricio"
-                      width="30"
-                      height="30"
+                      width="80"
+                      height="80"
                       style="
                         display: block;
                         border: 0;
