@@ -36,15 +36,7 @@ const resources = {
 i18n.init({
   resources,
   fallbackLng: "en",
-  // lng:
-
-  // interpolation: {
-  //   escapeValue: false,
-  // },
-
-  // backend: {
-  //   loadPath: path.join(process.cwd(), "src/i18n/translations", "{{lng}}", "{{ns}}.json"), // Path to translation files
-  // },
+  lng: "en",
 });
 
 export default i18n;
