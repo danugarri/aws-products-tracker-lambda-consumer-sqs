@@ -1,5 +1,4 @@
 import { pollQueue } from "./polling";
-import "./i18n/i18n"; // Initialize i18n
 
 // Start polling
 (() => {

@@ -1,5 +1,5 @@
-import i18next from "i18next";
 import { IMessageParams } from "./notifier.types";
+import i18n from "../i18n/i18n";
 
 export const formatMessage = ({
   title,
@@ -8,7 +8,7 @@ export const formatMessage = ({
   productUrl,
   imageUrl,
 }: IMessageParams) => {
-  const appName = `${i18next.t("EMAIL_APP_TITLE")}`;
+  const appName = `${i18n.t("EMAIL_APP_TITLE")}`;
 
   return `
   <!DOCTYPE html>
@@ -53,7 +53,7 @@ export const formatMessage = ({
              ${appName}
             </h1>
             <p style="margin:0; font-size:12px; line-height:16px; color:#6B7280; font-family: Arial, Helvetica, sans-serif;">
-              ${i18next.t("EMAIL_APP_SUBTITLE")}
+              ${i18n.t("EMAIL_APP_SUBTITLE")}
             </p>
           </td>
         </tr>
@@ -83,17 +83,17 @@ export const formatMessage = ({
                     color: #111827;
                   "
                 >
-              ${i18next.t("EMAIL_SUBJECT")}
+              ${i18n.t("EMAIL_SUBJECT")}
 
                 </h1>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong> ${i18next.t("EMAIL_PRODUCT_TITLE")}:</strong> ${title}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_TITLE")}:</strong> ${title}
                 </p>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong> ${i18next.t("EMAIL_PRODUCT_PRICE")}:</strong> ${price}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_PRICE")}:</strong> ${price}
                 </p>
                 <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.6">
-                  <strong> ${i18next.t("EMAIL_PRODUCT_DATE")}:</strong> ${date}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_DATE")}:</strong> ${date}
                 </p>
 
                 <table
@@ -107,7 +107,7 @@ export const formatMessage = ({
                     <td>
                       <img
                         src="${imageUrl}"
-                        alt="${i18next.t("EMAIL_ALT_TEXT_PRODUCT_IMAGE")}"
+                        alt="${i18n.t("EMAIL_ALT_TEXT_PRODUCT_IMAGE")}"
                         style="max-width: 100%; height: 300px"
                       />
                     </td>
@@ -139,7 +139,7 @@ export const formatMessage = ({
                           border-radius: 8px;
                         "
                       >
-                        ${i18next.t("EMAIL_CTA_BUTTON")}
+                        ${i18n.t("EMAIL_CTA_BUTTON")}
                       </a>
                     </td>
                   </tr>
@@ -158,7 +158,7 @@ export const formatMessage = ({
                   color: #6b7280;
                 "
               >
-            ${i18next.t("EMAIL_FOOTER", { appName })}
+            ${i18n.t("EMAIL_FOOTER", { appName })}
             </tr>
           </table>
         </td>
