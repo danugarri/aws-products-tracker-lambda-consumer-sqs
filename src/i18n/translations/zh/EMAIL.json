@@ -6,5 +6,6 @@
   "EMAIL_PRODUCT_PRICE": "价格",
   "EMAIL_PRODUCT_DATE": "日期",
   "EMAIL_CTA_BUTTON": "查看产品",
-  "EMAIL_FOOTER": "您收到此通知是因为您在 {{appName}} 上关注了该产品。从您的账户管理您的提醒。"
+  "EMAIL_FOOTER": "您收到此通知是因为您在 {{appName}} 上关注了该产品。从您的账户管理您的提醒。",
+  "EMAIL_ALT_TEXT_PRODUCT_IMAGE": "产品图片"
 }

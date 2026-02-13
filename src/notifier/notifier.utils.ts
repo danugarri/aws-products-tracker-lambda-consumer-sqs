@@ -107,7 +107,7 @@ export const formatMessage = ({
                     <td>
                       <img
                         src="${imageUrl}"
-                        alt="Imagen del producto"
+                        alt="${i18next.t("EMAIL_ALT_TEXT_PRODUCT_IMAGE")}"
                         style="max-width: 100%; height: 300px"
                       />
                     </td>

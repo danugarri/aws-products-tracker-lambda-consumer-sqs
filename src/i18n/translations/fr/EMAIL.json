@@ -6,5 +6,6 @@
   "EMAIL_PRODUCT_PRICE": "Prix",
   "EMAIL_PRODUCT_DATE": "Date",
   "EMAIL_CTA_BUTTON": "Voir le produit",
-  "EMAIL_FOOTER": "Vous recevez cette notification car vous suivez ce produit sur {{appName}}. Gérez vos alertes depuis votre compte."
+  "EMAIL_FOOTER": "Vous recevez cette notification car vous suivez ce produit sur {{appName}}. Gérez vos alertes depuis votre compte.",
+  "EMAIL_ALT_TEXT_PRODUCT_IMAGE": "Image du produit"
 }
