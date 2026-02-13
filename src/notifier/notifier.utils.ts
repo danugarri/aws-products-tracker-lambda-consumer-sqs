@@ -42,7 +42,7 @@ export const formatMessage = ({
           <td width="80" valign="middle" style="padding:0; margin:0;">
             <img
               src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
-              alt="${i18next.t("EMAIL_APP_TITLE")}"
+              alt="${appName}"
               width="80"
               height="80"
               style="display:block; border:0; outline:none; text-decoration:none;"
@@ -50,7 +50,7 @@ export const formatMessage = ({
           </td>
           <td valign="middle" style="padding-left:12px;">
             <h1 style="margin:0; font-size:24px; line-height:1.2; color:#1A212D; font-family: Arial, Helvetica, sans-serif;">
-             {${i18next.t("EMAIL_APP_TITLE")}}
+             {${appName}}
             </h1>
             <p style="margin:0; font-size:12px; line-height:16px; color:#6B7280; font-family: Arial, Helvetica, sans-serif;">
               {${i18next.t("EMAIL_APP_SUBTITLE")}}
