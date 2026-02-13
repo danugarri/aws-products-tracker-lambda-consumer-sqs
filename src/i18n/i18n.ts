@@ -8,6 +8,7 @@ import { zh } from "./translations/zh";
 import { it } from "./translations/it";
 import { pt } from "./translations/pt";
 import { es } from "./translations/es";
+import { LanguageInitializer } from "./language.initializer";
 
 const resources = {
   en: {
@@ -36,6 +37,7 @@ const resources = {
 i18n.init({
   resources,
   fallbackLng: "en",
+  lng: LanguageInitializer.language,
   // debug: true, Just for development to test i18n
 });
 
