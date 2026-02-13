@@ -36,7 +36,6 @@ const resources = {
 i18n.init({
   resources,
   fallbackLng: "en",
-  lng: "en",
   // debug: true, Just for development to test i18n
 });
 
