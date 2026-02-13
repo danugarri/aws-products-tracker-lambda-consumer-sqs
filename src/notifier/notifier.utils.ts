@@ -42,7 +42,7 @@ export const formatMessage = ({
           <td width="80" valign="middle" style="padding:0; margin:0;">
             <img
               src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
-              alt="Pricio"
+              alt="${i18next.t("EMAIL_APP_TITLE")}"
               width="80"
               height="80"
               style="display:block; border:0; outline:none; text-decoration:none;"
