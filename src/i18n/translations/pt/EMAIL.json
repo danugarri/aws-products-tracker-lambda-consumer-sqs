@@ -1,0 +1,12 @@
+{
+  "EMAIL_APP_TITLE": "Pricio",
+  "EMAIL_APP_SUBTITLE": "Sua lista inteligente de produtos",
+  "EMAIL_SUBJECT": "Boas notícias, há uma queda de preço para: {{productTitle}}",
+  "EMAIL_CONTENT_TITLE": "Alerta de queda de preço",
+  "EMAIL_PRODUCT_TITLE": "Produto",
+  "EMAIL_PRODUCT_PRICE": "Preço",
+  "EMAIL_PRODUCT_DATE": "Data",
+  "EMAIL_CTA_BUTTON": "Ver Produto",
+  "EMAIL_FOOTER": "Você recebe esta notificação porque acompanha este produto em {{appName}}. Gerencie seus alertas na sua conta.",
+  "EMAIL_ALT_TEXT_PRODUCT_IMAGE": "Imagem do produto"
+}

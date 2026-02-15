@@ -1,4 +1,5 @@
 import { IMessageParams } from "./notifier.types";
+import i18n from "../i18n/i18n";
 
 export const formatMessage = ({
   title,
@@ -7,6 +8,8 @@ export const formatMessage = ({
   productUrl,
   imageUrl,
 }: IMessageParams) => {
+  const appName = `${i18n.t("EMAIL_APP_TITLE")}`;
+
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,7 @@ export const formatMessage = ({
           <td width="80" valign="middle" style="padding:0; margin:0;">
             <img
               src="https://products-tracker-assets.s3.us-east-1.amazonaws.com/pricio.jpeg"
-              alt="Pricio"
+              alt="${appName}"
               width="80"
               height="80"
               style="display:block; border:0; outline:none; text-decoration:none;"
@@ -47,10 +50,10 @@ export const formatMessage = ({
           </td>
           <td valign="middle" style="padding-left:12px;">
             <h1 style="margin:0; font-size:24px; line-height:1.2; color:#1A212D; font-family: Arial, Helvetica, sans-serif;">
-              Pricio
+             ${appName}
             </h1>
             <p style="margin:0; font-size:12px; line-height:16px; color:#6B7280; font-family: Arial, Helvetica, sans-serif;">
-              Tu lista de productos inteligente
+              ${i18n.t("EMAIL_APP_SUBTITLE")}
             </p>
           </td>
         </tr>
@@ -80,16 +83,17 @@ export const formatMessage = ({
                     color: #111827;
                   "
                 >
-                  Alerta de bajada de precio
+              ${i18n.t("EMAIL_CONTENT_TITLE")}
+
                 </h1>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong>Producto:</strong> ${title}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_TITLE")}:</strong> ${title}
                 </p>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">
-                  <strong>Precio:</strong> ${price}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_PRICE")}:</strong> ${price}
                 </p>
                 <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.6">
-                  <strong>Fecha:</strong> ${date}
+                  <strong> ${i18n.t("EMAIL_PRODUCT_DATE")}:</strong> ${date}
                 </p>
 
                 <table
@@ -103,7 +107,7 @@ export const formatMessage = ({
                     <td>
                       <img
                         src="${imageUrl}"
-                        alt="Imagen del producto"
+                        alt="${i18n.t("EMAIL_ALT_TEXT_PRODUCT_IMAGE")}"
                         style="max-width: 100%; height: 300px"
                       />
                     </td>
@@ -135,7 +139,7 @@ export const formatMessage = ({
                           border-radius: 8px;
                         "
                       >
-                        Ver Producto
+                        ${i18n.t("EMAIL_CTA_BUTTON")}
                       </a>
                     </td>
                   </tr>
@@ -154,8 +158,7 @@ export const formatMessage = ({
                   color: #6b7280;
                 "
               >
-                Recibes este aviso porque sigues este producto en Pricio. Gestiona tus alertas desde tu cuenta.
-              </td>
+            ${i18n.t("EMAIL_FOOTER", { appName })}
             </tr>
           </table>
         </td>

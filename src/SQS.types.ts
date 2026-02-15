@@ -8,4 +8,5 @@ export interface ISQSMessage {
   title: string;
   channel: Channel;
   imageUrl: string;
+  locale: string;
 }

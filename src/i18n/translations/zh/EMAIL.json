@@ -1,0 +1,12 @@
+{
+  "EMAIL_APP_TITLE": "Pricio",
+  "EMAIL_APP_SUBTITLE": "您的智能产品列表",
+  "EMAIL_SUBJECT": "好消息，{{productTitle}} 有价格下降",
+  "EMAIL_CONTENT_TITLE": "价格下降警报",
+  "EMAIL_PRODUCT_TITLE": "产品",
+  "EMAIL_PRODUCT_PRICE": "价格",
+  "EMAIL_PRODUCT_DATE": "日期",
+  "EMAIL_CTA_BUTTON": "查看产品",
+  "EMAIL_FOOTER": "您收到此通知是因为您在 {{appName}} 上关注了该产品。从您的账户管理您的提醒。",
+  "EMAIL_ALT_TEXT_PRODUCT_IMAGE": "产品图片"
+}
