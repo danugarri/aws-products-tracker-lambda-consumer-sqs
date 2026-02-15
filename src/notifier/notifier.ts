@@ -7,6 +7,7 @@ import {
 } from "./notifier.types";
 import { sendEmail } from "../utils/channels/email";
 import DEFAULT from "../utils/channels/default";
+import i18n from "../i18n/i18n";
 
 const USER_POOL_ID = process.env.USER_POOL_ID!;
 
@@ -26,7 +27,7 @@ export const notifier = async ({ body, currentPrice }: INotifierParams) => {
   const formattedDate = new Date().toLocaleString(timeZone);
   console.log({ title });
 
-  const subject = `Good news there is a match for: ${title}`;
+  const subject = i18n.t("EMAIL_SUBJECT", { productTitle: title });
   const message = formatMessage({
     title,
     price: currentPrice,

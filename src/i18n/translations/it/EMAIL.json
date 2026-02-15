@@ -1,7 +1,8 @@
 {
   "EMAIL_APP_TITLE": "Pricio",
   "EMAIL_APP_SUBTITLE": "Il tuo elenco intelligente di prodotti",
-  "EMAIL_SUBJECT": "Avviso di calo dei prezzi",
+  "EMAIL_SUBJECT": "Buone notizie, c'è una riduzione di prezzo per: {{productTitle}}",
+  "EMAIL_CONTENT_TITLE": "Avviso di calo dei prezzi",
   "EMAIL_PRODUCT_TITLE": "Prodotto",
   "EMAIL_PRODUCT_PRICE": "Prezzo",
   "EMAIL_PRODUCT_DATE": "Data",

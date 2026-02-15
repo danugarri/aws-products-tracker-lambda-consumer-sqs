@@ -1,7 +1,8 @@
 {
   "EMAIL_APP_TITLE": "Pricio",
   "EMAIL_APP_SUBTITLE": "您的智能产品列表",
-  "EMAIL_SUBJECT": "价格下降警报",
+  "EMAIL_SUBJECT": "好消息，{{productTitle}} 有价格下降",
+  "EMAIL_CONTENT_TITLE": "价格下降警报",
   "EMAIL_PRODUCT_TITLE": "产品",
   "EMAIL_PRODUCT_PRICE": "价格",
   "EMAIL_PRODUCT_DATE": "日期",

@@ -83,7 +83,7 @@ export const formatMessage = ({
                     color: #111827;
                   "
                 >
-              ${i18n.t("EMAIL_SUBJECT")}
+              ${i18n.t("EMAIL_CONTENT_TITLE")}
 
                 </h1>
                 <p style="margin: 0 0 6px; font-size: 14px; line-height: 1.6">

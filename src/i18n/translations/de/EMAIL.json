@@ -1,7 +1,8 @@
 {
   "EMAIL_APP_TITLE": "Pricio",
   "EMAIL_APP_SUBTITLE": "Ihre intelligente Produktliste",
-  "EMAIL_SUBJECT": "Preisrückgang-Benachrichtigung",
+  "EMAIL_SUBJECT": "Gute Nachrichten, es gibt einen Preisrückgang für: {{productTitle}}",
+  "EMAIL_CONTENT_TITLE": "Preisrückgang-Benachrichtigung",
   "EMAIL_PRODUCT_TITLE": "Produkt",
   "EMAIL_PRODUCT_PRICE": "Preis",
   "EMAIL_PRODUCT_DATE": "Datum",

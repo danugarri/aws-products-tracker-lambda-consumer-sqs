@@ -1,7 +1,8 @@
 {
   "EMAIL_APP_TITLE": "Pricio",
   "EMAIL_APP_SUBTITLE": "Your smart product list",
-  "EMAIL_SUBJECT": "Price drop alert",
+  "EMAIL_SUBJECT": "Good news, there's a price drop for: {{productTitle}}",
+  "EMAIL_CONTENT_TITLE": "Price drop alert",
   "EMAIL_PRODUCT_TITLE": "Product",
   "EMAIL_PRODUCT_PRICE": "Price",
   "EMAIL_PRODUCT_DATE": "Date",
