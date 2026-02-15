@@ -1,6 +1,6 @@
 export class LanguageInitializer {
-  static language = "en";
+  public static language = "en";
   static setLanguage(locale: string) {
-    LanguageInitializer.language = locale;
+    this.language = locale;
   }
 }
