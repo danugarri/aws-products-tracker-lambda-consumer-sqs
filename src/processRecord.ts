@@ -3,12 +3,12 @@ import { ISQSMessage } from "./SQS.types";
 import type { Message } from "@aws-sdk/client-sqs";
 import { parsePrice } from "./utils/format";
 import { notifier } from "./notifier/notifier";
-import { LanguageInitializer } from "./i18n/language.initializer";
+import i18n from "./i18n/i18n";
 
 // Process single SQS message record
 export async function processRecord(record: Message) {
   const body: ISQSMessage = JSON.parse(record.Body!);
-  LanguageInitializer.setLanguage(body.locale);
+  i18n.changeLanguage(body.locale);
 
   console.log({ body });
   const urlWithTag = `${body.productUrl}&tag=${process.env.AMAZON_PARTNER_TAG}`;
